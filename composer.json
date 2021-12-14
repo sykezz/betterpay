@@ -1,0 +1,24 @@
+{
+    "name": "sykez/betterpay",
+    "description": "betterpay.me payment gateway PHP package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sykez",
+            "email": "hello@sykez.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sykez\\BetterPay\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sykez\\BetterPay\\BetterPayServiceProvider"
+            ]
+        }
+    }
+}
