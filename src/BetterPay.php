@@ -15,7 +15,7 @@ class BetterPay
         $this->client = new Client();
         $this->api_key = $api_key;
         $this->merchant_id = $merchant_id;
-        $this->api_url = $api_url ?? 'https://www.demo.betterpay.me/merchant/api/';
+        $this->api_url = $api_url;
         $this->callback_url = $callback_url;
         $this->success_url = $success_url;
         $this->fail_url = $fail_url;
