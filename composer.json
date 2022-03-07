@@ -1,23 +1,36 @@
 {
     "name": "sykez/betterpay",
-    "description": "betterpay.me payment gateway PHP package",
+    "description": "PHP package for Betterpay payment gateway solution API",
+    "homepage": "https://github.com/sykezz/betterpay",
     "license": "MIT",
+    "keywords": [
+        "betterpay",
+        "qlicknpay",
+        "payment",
+        "gateway",
+        "merchant",
+        "malaysia"
+    ],
     "authors": [
         {
             "name": "sykez",
             "email": "hello@sykez.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "guzzlehttp/guzzle": "^7.0.1"
+    },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Sykez\\BetterPay\\": "src"
+            "Sykez\\Betterpay\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Sykez\\BetterPay\\BetterPayServiceProvider"
+                "Sykez\\Betterpay\\BetterpayServiceProvider"
             ]
         }
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Sykez\BetterPay;
+namespace Sykez\Betterpay;
 
 use GuzzleHttp\Client;
-use Sykez\BetterPay\Exceptions\BetterPayException;
+use Sykez\Betterpay\Exceptions\BetterpayException;
 use GuzzleHttp\Exception\ClientException;
-use Sykez\BetterPay\Hashing;
+use Sykez\Betterpay\Hashing;
 
-class BetterPay
+class Betterpay
 {
     protected $client;
     protected $api_key;
@@ -19,7 +19,7 @@ class BetterPay
     public function __construct(?string $api_key, ?string $merchant_id, string $api_url, ?string $callback_url, ?string $success_url, ?string $fail_url)
     {
         if (!$api_key || !$merchant_id || !$api_url || !$callback_url || !$success_url || !$fail_url) {
-            throw BetterPayException::ConfigException();
+            throw BetterpayException::configException();
         }
 
         $this->api_key = $api_key;
@@ -74,7 +74,7 @@ class BetterPay
 
             return $data;
         } catch (ClientException $exception) {
-            throw BetterPayException::ClientException($exception);
+            throw BetterpayException::clientException($exception);
         }
     }
 }

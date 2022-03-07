@@ -1,11 +1,11 @@
 <?php
 
-namespace Sykez\BetterPay;
+namespace Sykez\Betterpay;
 
-use Sykez\BetterPay\BetterPay;
+use Sykez\Betterpay\Betterpay;
 use Illuminate\Support\ServiceProvider;
 
-class BetterPayServiceProvider extends ServiceProvider
+class BetterpayServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -16,8 +16,8 @@ class BetterPayServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/betterpay.php', 'betterpay');
 
-        $this->app->singleton(BetterPay::class, function() {
-            return new BetterPay(...array_values(config('betterpay')));
+        $this->app->singleton(Betterpay::class, function () {
+            return new Betterpay(...array_values(config('betterpay')));
         });
     }
 
