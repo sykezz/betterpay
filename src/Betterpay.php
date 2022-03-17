@@ -62,6 +62,17 @@ class Betterpay
         return $response;
     }
 
+    public function delete_card(string $token)
+    {
+        $hash = Hashing::reference($this->api_key, $this->merchant_id, $token);
+        $payload = [
+            'merchant_id' => $this->merchant_id,
+            'hash' => $hash,
+        ];
+        $response = $this->http_request('cards/token/v1/delete/' . $token, $payload);
+        return $response;
+    }
+
     public function http_request(string $url, array $payload)
     {
         $client = new Client();
