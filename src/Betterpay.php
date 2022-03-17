@@ -30,7 +30,7 @@ class Betterpay
         $this->fail_url = $fail_url;
     }
 
-    public function createTokenizationUrl(string $reference_id, int $skip_receipt = 0)
+    public function createTokenizationUrl(string $reference_id, int $skip_receipt = 0, bool $_3ds = true)
     {
         $hash = Hashing::reference($this->api_key, $this->merchant_id, $reference_id);
         $payload = [
@@ -43,7 +43,7 @@ class Betterpay
             'hash' => $hash,
         ];
 
-        $response = $this->http_request('cards/token/v1/create', $payload);
+        $response = $this->http_request('cards/token/v1/' . ($_3ds ? '3ds/' : '') . 'create', $payload);
 
         return $response;
     }
