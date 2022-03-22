@@ -124,7 +124,7 @@ class Betterpay
      */
     public function makeHash(string ...$args): string
     {
-        return md5(implode('|', [$this->api_key, $this->merchant_id, ...$args]));
+        return md5(implode('|', array_merge([$this->api_key, $this->merchant_id], $args)));
     }
     
     /**
@@ -135,7 +135,7 @@ class Betterpay
      */
     public function makeHash2(string ...$args): string
     {
-        return md5(implode('|', [$this->merchant_id, $this->api_key, ...$args]));
+        return md5(implode('|', array_merge([$this->merchant_id, $this->api_key], ...$args)));
     }
     
     /**
