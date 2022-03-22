@@ -84,6 +84,39 @@ class Betterpay
     }
     
     /**
+     * Set callback URL
+     *
+     * @param  mixed $callback_url
+     * @return void
+     */
+    public function setCallbackUrl(string $callback_url)
+    {
+        $this->callback_url = $callback_url;
+    }
+    
+    /**
+     * Set success URL
+     *
+     * @param  mixed $success_url
+     * @return void
+     */
+    public function setSuccessUrl(string $success_url)
+    {
+        $this->success_url = $success_url;
+    }
+    
+    /**
+     * Set fail URL
+     *
+     * @param  mixed $fail_url
+     * @return void
+     */
+    public function setFailUrl(string $fail_url)
+    {
+        $this->fail_url = $fail_url;
+    }
+    
+    /**
      * Hash (API Key + Merchant ID + ...)
      *
      * @param  mixed $args

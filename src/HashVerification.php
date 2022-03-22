@@ -15,7 +15,7 @@ trait HashVerification
      * @param  mixed $hash
      * @return bool
      */
-    public function tokenCardVerificationCallback(string $reference, string $status_code, string $status_message, string $token, string $hash): bool
+    public function hashVerifyTokenCardVerificationCallback(string $reference, string $status_code, string $status_message, string $token, string $hash): bool
     {
         $_hash = md5($this->api_key . $reference . $status_code . $status_message . $token);
         return strcmp($_hash, $hash) !== 0 ? false : true;
