@@ -146,7 +146,9 @@ class Betterpay
      */
     public function filterPayload(array $payload): array
     {
-        return array_filter($payload, fn ($v) => $v !== null && $v !== '');
+        return array_filter($payload, function ($v) {
+            return $v !== null && $v !== '';
+        });
     }
     
     /**
