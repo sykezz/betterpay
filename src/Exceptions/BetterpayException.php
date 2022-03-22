@@ -13,9 +13,9 @@ class BetterpayException extends Exception
     /**
      * Configuration exception
      *
-     * @return static
+     * @return void
      */
-    public static function configException(): static
+    public static function configException()
     {
         return new static('Missing Betterpay API key, merchant id, API URL, callback URL, success URL, or fail URL.');
     }
@@ -23,9 +23,9 @@ class BetterpayException extends Exception
     /**
      * Sandbox 3DS exception
      *
-     * @return static
+     * @return void
      */
-    public static function sandbox3dsException(): static
+    public static function sandbox3dsException()
     {
         return new static('Sandbox mode is not supported with 3DS.');
     }
@@ -34,9 +34,9 @@ class BetterpayException extends Exception
      * Client exception
      *
      * @param  mixed $exception
-     * @return static
+     * @return void
      */
-    public static function clientException($exception): static
+    public static function clientException($exception)
     {
         self::$http_code = $exception->getCode();
         $response = json_decode($exception->getResponse()->getBody()->getContents(), true);
@@ -54,9 +54,9 @@ class BetterpayException extends Exception
     /**
      * Get http code
      *
-     * @return static
+     * @return void
      */
-    public static function getHttpCode(): static
+    public static function getHttpCode()
     {
         return self::$http_code;
     }
@@ -64,19 +64,20 @@ class BetterpayException extends Exception
     /**
      * Get error code
      *
-     * @return static
+     * @return void
      */
-    public static function getErrorCode(): static
+    public static function getErrorCode()
     {
         return self::$error_code;
     }
 
+    
     /**
-     * Get error message
+     * getErrorMessage
      *
-     * @return static
+     * @return void
      */
-    public static function getErrorMessage(): static
+    public static function getErrorMessage()
     {
         return self::$error_message;
     }

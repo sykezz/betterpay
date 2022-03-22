@@ -12,9 +12,9 @@ trait Tokenization
      * @param  mixed $amount
      * @param  mixed $invoice
      * @param  mixed $skip_receipt
-     * @return mixed
+     * @return array
      */
-    public function createTokenVerificationUrl(string $reference_id, ?float $amount = null, ?string $invoice = null, int $skip_receipt = 0): mixed
+    public function createTokenVerificationUrl(string $reference_id, ?float $amount = null, ?string $invoice = null, int $skip_receipt = 0): array
     {
         // $amount & $invoice needs to be in hash if customized/!null
         $hash = $amount && $invoice ? $this->makeHash($reference_id, $amount, $invoice) : $this->makeHash($reference_id);
@@ -45,9 +45,9 @@ trait Tokenization
      * @param  mixed $invoice
      * @param  mixed $amount
      * @param  mixed $sandbox_charge_status
-     * @return mixed
+     * @return array
      */
-    public function chargeTokenCard(string $token, string $invoice, float $amount, int $sandbox_charge_status = null): mixed
+    public function chargeTokenCard(string $token, string $invoice, float $amount, int $sandbox_charge_status = null): array
     {
         $hash = $this->makeHash($token, $invoice, $amount);
         $payload = [
@@ -67,9 +67,9 @@ trait Tokenization
      * Delete token card
      *
      * @param  mixed $token
-     * @return mixed
+     * @return array
      */
-    public function deleteTokenCard(string $token): mixed
+    public function deleteTokenCard(string $token): array
     {
         $hash = $this->makeHash($token);
         $payload = [
@@ -88,9 +88,9 @@ trait Tokenization
      * @param  mixed $date_to
      * @param  mixed $status
      * @param  mixed $page
-     * @return mixed
+     * @return array
      */
-    public function getTokens(?string $date_from = null, ?string $date_to = null, ?int $status = null, ?int $page = null): mixed
+    public function getTokens(?string $date_from = null, ?string $date_to = null, ?int $status = null, ?int $page = null): array
     {
         $hash = $this->makeHash();
         $payload = [
@@ -113,9 +113,9 @@ trait Tokenization
      * Get token details
      *
      * @param  mixed $reference_id
-     * @return mixed
+     * @return array
      */
-    public function getTokenDetails(string $reference_id): mixed
+    public function getTokenDetails(string $reference_id): array
     {
         $hash = $this->makeHash($reference_id);
         $payload = [
@@ -134,9 +134,9 @@ trait Tokenization
      * @param  mixed $date_to
      * @param  mixed $status
      * @param  mixed $page
-     * @return mixed
+     * @return array
      */
-    public function getTokenTransactions(?string $date_from = null, ?string $date_to = null, ?int $status = null, ?int $page = null): mixed
+    public function getTokenTransactions(?string $date_from = null, ?string $date_to = null, ?int $status = null, ?int $page = null): array
     {
         $hash = $this->makeHash();
         $payload = [
@@ -159,9 +159,9 @@ trait Tokenization
      * Get token transaction details
      *
      * @param  mixed $invoice
-     * @return mixed
+     * @return array
      */
-    public function getTokenTransactionDetails(string $invoice): mixed
+    public function getTokenTransactionDetails(string $invoice): array
     {
         $hash = $this->makeHash($invoice);
         $payload = [
