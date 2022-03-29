@@ -11,7 +11,9 @@ class BetterpayException extends Exception
     private static $error_message = null;
 
     /**
-     * @return static
+     * Configuration exception
+     *
+     * @return void
      */
     public static function configException()
     {
@@ -19,7 +21,20 @@ class BetterpayException extends Exception
     }
 
     /**
-     * @return static
+     * Sandbox 3DS exception
+     *
+     * @return void
+     */
+    public static function sandbox3dsException()
+    {
+        return new static('Sandbox mode is not supported with 3DS.');
+    }
+
+    /**
+     * Client exception
+     *
+     * @param  mixed $exception
+     * @return void
      */
     public static function clientException($exception)
     {
@@ -36,16 +51,32 @@ class BetterpayException extends Exception
         return new static(self::$error_message);
     }
 
+    /**
+     * Get http code
+     *
+     * @return void
+     */
     public static function getHttpCode()
     {
         return self::$http_code;
     }
 
+    /**
+     * Get error code
+     *
+     * @return void
+     */
     public static function getErrorCode()
     {
         return self::$error_code;
     }
 
+    
+    /**
+     * getErrorMessage
+     *
+     * @return void
+     */
     public static function getErrorMessage()
     {
         return self::$error_message;
