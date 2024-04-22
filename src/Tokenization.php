@@ -122,7 +122,7 @@ trait Tokenization
             'merchant_id' => $this->merchant_id,
             'hash' => $hash,
         ];
-        $response = $this->httpRequest('cards/token/v1/' . ($this->is_3ds ? '3ds/' : '') . 'get_token_details/' . $reference_id, $payload);
+        $response = $this->httpRequest('cards/token/v1/get_token_details/' . $reference_id, $payload);
 
         return $response;
     }
